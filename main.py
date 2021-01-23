@@ -10,7 +10,7 @@ import time
 def network_monitoring_for_visualization_version(pkt):
      time=datetime.datetime.now()
              #classifying packets into TCP
-      if pkt.haslayer(TCP):
+      if(pkt.haslayer(TCP)):
             #classifying packets into TCP Incoming packets
             if socket.gethostbyname(socket.gethostbyname())== pkt[IP].dst:
                       print(str("[")+str(time)+str("]")+" "+"TCP+IN:{}".format(len(pkt[TCP]))+" Bytes"+"    "+"SRC-MAC:" +str(pkt.src)+"    "+ "DST-MAC:"+str(pkt.dst)+"    "+ "SRC-PORT:"+str(pkt.sport)+"    "+"DST-PORT:"+str(pkt.dport)+"    "+"SRC-IP:"+str(pkt[IP].src  )+"    "+"DST-IP:"+str(pkt[IP].dst  )+"  " +"Location:" +geolite2.lookup(pkt[IP].src).timezone))
